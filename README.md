@@ -28,29 +28,28 @@ To run this project locally, follow these steps:
 3. Install dependencies:
 
    ```bash
-   go mod download
+   docker compose build
    ```
 
 4. Build and run the project:
 
    ```bash
-   go build
-   ./URL-Shortener
+   docker compose up
    ```
 
 ## Usage
 
 Once the project is running, you can access the URL shortener service through the provided API endpoints. Here are the main endpoints:
 
-- **Shorten URL:** `/shorten` - Endpoint to shorten a long URL.
+- **Shorten URL:** `/create-short-url` - Endpoint to shorten a long URL.
 - **Redirect:** `/<short-code>` - Shortened URLs are accessed using this pattern, where `<short-code>` is the unique identifier for the shortened URL.
 
 ## Configuration
 
 The project can be configured via environment variables or a configuration file. Ensure to set the following configuration options:
 
-- `PORT`: Port on which the server will listen.
-- `DATABASE_URL`: URL of the database to store URL mappings.
+- `PORT`: backend : 9808, frontend : 3000.
+- `DATABASE_URL`: Project using the redis as in-memory database to store shorten URLs.
 
 ## Contributing
 
